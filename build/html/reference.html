@@ -1,0 +1,921 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reference &mdash; phood-api 0.3.8 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="License" href="license.html" />
+    <link rel="prev" title="Making API Calls" href="makingapicalls.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> phood-api
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="gettingstarted.html">Getting Started with Phood Api</a></li>
+<li class="toctree-l1"><a class="reference internal" href="makingapicalls.html">Making API Calls</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#query">Query</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#me"><em>me</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paymentmethods"><em>paymentMethods</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#order"><em>order</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#orders"><em>orders</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#mutation">Mutation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#authenticate"><em>authenticate</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#authenticatewithgoogle"><em>authenticateWithGoogle</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#authenticatewithfacebook"><em>authenticateWithFacebook</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#authenticatewithtwitter"><em>authenticateWithTwitter</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#authenticatewithforgotpasswordtoken"><em>authenticateWithForgotPasswordToken</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#createuser"><em>createUser</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#updateuser"><em>updateUser</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sendforgotpasswordemail"><em>sendForgotPasswordEmail</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#placeorder"><em>placeOrder</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reorder"><em>reorder</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#registerdevice"><em>registerDevice</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cashout"><em>cashOut</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#createpaymentmethod"><em>createPaymentMethod</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deletepaymentmethod"><em>deletePaymentMethod</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#objects">Objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1"><em>Me</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#payment"><em>Payment</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paymentmethod"><em>PaymentMethod</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#paymentmethodinput"><em>PaymentMethodInput</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deletepaymentmethodinput"><em>DeletePaymentMethodInput</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#driver"><em>Driver</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#driverperformance"><em>DriverPerformance</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#driverperformancedata"><em>DriverPerformanceData</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user"><em>User</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#device"><em>Device</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12"><em>Order</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#orderitem"><em>OrderItem</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#orderiteminput"><em>OrderItemInput</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#orderitemmodifierinput"><em>OrderItemModifierInput</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#menu"><em>Menu</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#menuitem"><em>MenuItem</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#menuitemgroup"><em>MenuItemGroup</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#menusection"><em>MenuSection</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#delivery"><em>Delivery</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deliverylocation"><em>DeliveryLocation</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deliveryvote"><em>DeliveryVote</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rating"><em>Rating</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#restaurant"><em>Restaurant</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#scalars">Scalars</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#string"><em>String</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#datetime"><em>DateTime</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id"><em>ID</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#int"><em>Int</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#float"><em>Float</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#decimal"><em>Decimal</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#boolean"><em>Boolean</em></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#enum">Enum</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#availabilitystatus"><em>AvailabilityStatus</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#orderstatus"><em>OrderStatus</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">phood-api</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/reference.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="reference">
+<h1>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="query">
+<h2>Query<a class="headerlink" href="#query" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="me">
+<h3><em>me</em><a class="headerlink" href="#me" title="Permalink to this headline">¶</a></h3>
+<p>Gets details on the current user.</p>
+<dl class="docutils">
+<dt>output:</dt>
+<dd><a class="reference internal" href="#id1">Me</a>!</dd>
+</dl>
+</div>
+<div class="section" id="paymentmethods">
+<h3><em>paymentMethods</em><a class="headerlink" href="#paymentmethods" title="Permalink to this headline">¶</a></h3>
+<p>List the current user’s payment methods</p>
+<dl class="docutils">
+<dt>output:</dt>
+<dd>[<a class="reference internal" href="#paymentmethod">PaymentMethod</a>!]!</dd>
+</dl>
+</div>
+<div class="section" id="order">
+<h3><em>order</em><a class="headerlink" href="#order" title="Permalink to this headline">¶</a></h3>
+<p>Get a specific order</p>
+<dl class="docutils">
+<dt><strong>args</strong>:</dt>
+<dd><strong>id</strong>: <a class="reference internal" href="#id">ID</a>!</dd>
+<dt>output:</dt>
+<dd><a class="reference internal" href="#id12">Order</a>!</dd>
+</dl>
+</div>
+<div class="section" id="orders">
+<h3><em>orders</em><a class="headerlink" href="#orders" title="Permalink to this headline">¶</a></h3>
+<p>Get the current user’s orders.</p>
+<dl class="docutils">
+<dt>output:</dt>
+<dd>[<a class="reference internal" href="#id12">Order</a>!]!</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="mutation">
+<h2>Mutation<a class="headerlink" href="#mutation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="authenticate">
+<h3><em>authenticate</em><a class="headerlink" href="#authenticate" title="Permalink to this headline">¶</a></h3>
+<p>Authenticate and receive an authorization token.</p>
+<dl class="docutils">
+<dt><strong>args</strong>:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>email</strong>: <a class="reference internal" href="#string">String</a>!</div>
+<div class="line"><strong>password</strong>: <a class="reference internal" href="#string">String</a>!</div>
+</div>
+</dd>
+<dt>output:</dt>
+<dd><a class="reference internal" href="#string">String</a>!</dd>
+</dl>
+</div>
+<div class="section" id="authenticatewithgoogle">
+<h3><em>authenticateWithGoogle</em><a class="headerlink" href="#authenticatewithgoogle" title="Permalink to this headline">¶</a></h3>
+<p>Authenticate with google and receive an authorization token.</p>
+<dl class="docutils">
+<dt><strong>args</strong>:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>accessToken</strong>: <a class="reference internal" href="#string">String</a>!</div>
+</div>
+</dd>
+<dt>output:</dt>
+<dd><a class="reference internal" href="#string">String</a>!</dd>
+</dl>
+</div>
+<div class="section" id="authenticatewithfacebook">
+<h3><em>authenticateWithFacebook</em><a class="headerlink" href="#authenticatewithfacebook" title="Permalink to this headline">¶</a></h3>
+<p>Authenticate with facebook and receive an authorization token.</p>
+<dl class="docutils">
+<dt><strong>args</strong>:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>accessToken</strong>: <a class="reference internal" href="#string">String</a>!</div>
+</div>
+</dd>
+<dt>output:</dt>
+<dd><a class="reference internal" href="#string">String</a>!</dd>
+</dl>
+</div>
+<div class="section" id="authenticatewithtwitter">
+<h3><em>authenticateWithTwitter</em><a class="headerlink" href="#authenticatewithtwitter" title="Permalink to this headline">¶</a></h3>
+<p>Authenticate with Twitter and receive an authorization token.</p>
+<dl class="docutils">
+<dt><strong>args</strong>:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>secret</strong>: <a class="reference internal" href="#string">String</a>!</div>
+<div class="line"><strong>token</strong>: <a class="reference internal" href="#string">String</a>!</div>
+</div>
+</dd>
+<dt>output:</dt>
+<dd><a class="reference internal" href="#string">String</a>!</dd>
+</dl>
+</div>
+<div class="section" id="authenticatewithforgotpasswordtoken">
+<h3><em>authenticateWithForgotPasswordToken</em><a class="headerlink" href="#authenticatewithforgotpasswordtoken" title="Permalink to this headline">¶</a></h3>
+<p>Authenticate with a forgot password token and receive an authorization token</p>
+<dl class="docutils">
+<dt><strong>args</strong></dt>
+<dd><strong>token</strong>: <a class="reference internal" href="#string">String</a>!</dd>
+<dt>output:</dt>
+<dd><a class="reference internal" href="#string">String</a>!</dd>
+</dl>
+</div>
+<div class="section" id="createuser">
+<h3><em>createUser</em><a class="headerlink" href="#createuser" title="Permalink to this headline">¶</a></h3>
+<p>Create a new User</p>
+<dl class="docutils">
+<dt><strong>args</strong>:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>email</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>name</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>password</strong>: <a class="reference internal" href="#string">String</a></div>
+</div>
+</dd>
+<dt>output:</dt>
+<dd><a class="reference internal" href="#user">User</a>!</dd>
+</dl>
+</div>
+<div class="section" id="updateuser">
+<h3><em>updateUser</em><a class="headerlink" href="#updateuser" title="Permalink to this headline">¶</a></h3>
+<p>Update User information.</p>
+<dl class="docutils">
+<dt><strong>args</strong>:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>email</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>name</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>password</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>phone</strong>: <a class="reference internal" href="#string">String</a></div>
+</div>
+</dd>
+<dt>output:</dt>
+<dd><a class="reference internal" href="#id1">Me</a>!</dd>
+</dl>
+</div>
+<div class="section" id="sendforgotpasswordemail">
+<h3><em>sendForgotPasswordEmail</em><a class="headerlink" href="#sendforgotpasswordemail" title="Permalink to this headline">¶</a></h3>
+<p>Send a forgot password email to a specified email address.</p>
+<dl class="docutils">
+<dt><strong>args</strong>:</dt>
+<dd><strong>email</strong>: <a class="reference internal" href="#string">String</a>!</dd>
+<dt>output:</dt>
+<dd><a class="reference internal" href="#boolean">Boolean</a>!</dd>
+</dl>
+</div>
+<div class="section" id="placeorder">
+<h3><em>placeOrder</em><a class="headerlink" href="#placeorder" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><strong>args</strong>:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>orderItems</strong>: [<a class="reference internal" href="#orderiteminput">OrderItemInput</a>!]!</div>
+<div class="line"><strong>specialInstructions</strong>: <a class="reference internal" href="#string">String</a></div>
+</div>
+</dd>
+<dt>output:</dt>
+<dd><a class="reference internal" href="#id12">Order</a></dd>
+</dl>
+</div>
+<div class="section" id="reorder">
+<h3><em>reorder</em><a class="headerlink" href="#reorder" title="Permalink to this headline">¶</a></h3>
+<p>Reorder by orderId.</p>
+<dl class="docutils">
+<dt><strong>args</strong>:</dt>
+<dd><strong>orderID</strong>: <a class="reference internal" href="#string">String</a>!</dd>
+<dt>output:</dt>
+<dd><a class="reference internal" href="#id12">Order</a></dd>
+</dl>
+</div>
+<div class="section" id="registerdevice">
+<h3><em>registerDevice</em><a class="headerlink" href="#registerdevice" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><strong>args</strong>:</dt>
+<dd><strong>fcmToken</strong>: <a class="reference internal" href="#string">String</a>!</dd>
+<dt>output:</dt>
+<dd><a class="reference internal" href="#device">Device</a></dd>
+</dl>
+</div>
+<div class="section" id="cashout">
+<h3><em>cashOut</em><a class="headerlink" href="#cashout" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>output:</dt>
+<dd><a class="reference internal" href="#payment">Payment</a>!</dd>
+</dl>
+</div>
+<div class="section" id="createpaymentmethod">
+<h3><em>createPaymentMethod</em><a class="headerlink" href="#createpaymentmethod" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><strong>args</strong>:</dt>
+<dd><strong>input</strong>: <a class="reference internal" href="#paymentmethodinput">PaymentMethodInput</a>!</dd>
+<dt>output:</dt>
+<dd><a class="reference internal" href="#paymentmethod">PaymentMethod</a></dd>
+</dl>
+</div>
+<div class="section" id="deletepaymentmethod">
+<h3><em>deletePaymentMethod</em><a class="headerlink" href="#deletepaymentmethod" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt><strong>args</strong>:</dt>
+<dd><strong>input</strong>: <a class="reference internal" href="#deletepaymentmethodinput">DeletePaymentMethodInput</a>!</dd>
+<dt>output:</dt>
+<dd><a class="reference internal" href="#paymentmethod">PaymentMethod</a></dd>
+</dl>
+</div>
+</div>
+<div class="section" id="objects">
+<h2>Objects<a class="headerlink" href="#objects" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<span id="id2"></span><h3><em>Me</em><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Details about the current user.</p>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>avatarUrl</strong>: <a class="reference internal" href="#string">String</a>!</div>
+<div class="line"><strong>defaultAddressId</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>driver</strong>: <a class="reference internal" href="#driver">Driver</a></div>
+<div class="line"><strong>email</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>id</strong>: <a class="reference internal" href="#id">ID</a>!</div>
+<div class="line"><strong>insertAt</strong>: <a class="reference internal" href="#datetime">DateTime</a>!</div>
+<div class="line"><strong>name</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>phone</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>updatedAt</strong>: <a class="reference internal" href="#datetime">DateTime</a>!</div>
+<div class="line"><strong>username</strong>: <a class="reference internal" href="#string">String</a></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="payment">
+<span id="id3"></span><h3><em>Payment</em><a class="headerlink" href="#payment" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>id</strong>: <a class="reference internal" href="#id">ID</a></div>
+<div class="line"><strong>insertedAt</strong>: <a class="reference internal" href="#datetime">DateTime</a>!</div>
+<div class="line"><strong>total</strong>: <a class="reference internal" href="#float">Float</a>!</div>
+<div class="line"><strong>user</strong>: <a class="reference internal" href="#user">User</a>!</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="paymentmethod">
+<span id="id4"></span><h3><em>PaymentMethod</em><a class="headerlink" href="#paymentmethod" title="Permalink to this headline">¶</a></h3>
+<p>Details about payment methods.</p>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>cardType</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>id</strong>: <a class="reference internal" href="#id">ID</a></div>
+<div class="line"><strong>insertAt</strong>: <a class="reference internal" href="#datetime">DateTime</a>!</div>
+<div class="line"><strong>month</strong>: <a class="reference internal" href="#int">Int</a>!</div>
+<div class="line"><strong>name</strong>: <a class="reference internal" href="#string">String</a>!</div>
+<div class="line"><strong>number</strong>: <a class="reference internal" href="#string">String</a>!</div>
+<div class="line"><strong>token</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>updateAt</strong>: <a class="reference internal" href="#datetime">DateTime</a>!</div>
+<div class="line"><strong>year</strong>: <a class="reference internal" href="#int">Int</a>!</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="paymentmethodinput">
+<span id="id5"></span><h3><em>PaymentMethodInput</em><a class="headerlink" href="#paymentmethodinput" title="Permalink to this headline">¶</a></h3>
+<p>Arguments for creating a payment method.</p>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>cardType</strong>: <a class="reference internal" href="#string">String</a>!</div>
+<div class="line"><strong>month</strong>: <a class="reference internal" href="#int">Int</a>!</div>
+<div class="line"><strong>name</strong>: <a class="reference internal" href="#string">String</a>!</div>
+<div class="line"><strong>number</strong>: <a class="reference internal" href="#string">String</a>!</div>
+<div class="line"><strong>year</strong>: <a class="reference internal" href="#int">Int</a>!</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="deletepaymentmethodinput">
+<span id="id6"></span><h3><em>DeletePaymentMethodInput</em><a class="headerlink" href="#deletepaymentmethodinput" title="Permalink to this headline">¶</a></h3>
+<p>Arguments for deleting a payment method</p>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><strong>paymentMethodID</strong>: <a class="reference internal" href="#string">String</a>!</dd>
+</dl>
+</div>
+<div class="section" id="driver">
+<span id="id7"></span><h3><em>Driver</em><a class="headerlink" href="#driver" title="Permalink to this headline">¶</a></h3>
+<p>Details about the Driver.</p>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>availability</strong>: <a class="reference internal" href="#availabilitystatus">AvailabilityStatus</a>!</div>
+<div class="line"><strong>id</strong>: <a class="reference internal" href="#id">ID</a></div>
+<div class="line"><strong>insertAt</strong>: <a class="reference internal" href="#datetime">DateTime</a>!</div>
+<div class="line"><strong>performance</strong>: <a class="reference internal" href="#driverperformance">DriverPerformance</a>!</div>
+<div class="line"><strong>updatedAt</strong>: <a class="reference internal" href="#datetime">DateTime</a>!</div>
+<div class="line"><strong>user</strong>: <a class="reference internal" href="#user">User</a>!</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="driverperformance">
+<span id="id8"></span><h3><em>DriverPerformance</em><a class="headerlink" href="#driverperformance" title="Permalink to this headline">¶</a></h3>
+<p>Details on the Drivers performance.</p>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>lastDay</strong>: [<a class="reference internal" href="#driverperformancedata">DriverPerformanceData</a>!]!</div>
+<div class="line"><strong>lastMonth</strong>: [<a class="reference internal" href="#driverperformancedata">DriverPerformanceData</a>!]!</div>
+<div class="line"><strong>lastWeek</strong>: [<a class="reference internal" href="#driverperformancedata">DriverPerformanceData</a>!]!</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="driverperformancedata">
+<span id="id9"></span><h3><em>DriverPerformanceData</em><a class="headerlink" href="#driverperformancedata" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>average</strong>: <a class="reference internal" href="#string">String</a>!</div>
+<div class="line"><strong>my</strong>: <a class="reference internal" href="#string">String</a>!</div>
+<div class="line"><strong>title</strong>: <a class="reference internal" href="#string">String</a>!</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="user">
+<span id="id10"></span><h3><em>User</em><a class="headerlink" href="#user" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>avatarUrl</strong>: <a class="reference internal" href="#string">String</a>!</div>
+<div class="line"><strong>id</strong>: <a class="reference internal" href="#id">ID</a>!</div>
+<div class="line"><strong>insertAt</strong>: <a class="reference internal" href="#datetime">DateTime</a>!</div>
+<div class="line"><strong>name</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>phone</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>updatedAt</strong>: <a class="reference internal" href="#datetime">DateTime</a>!</div>
+<div class="line"><strong>username</strong>: <a class="reference internal" href="#string">String</a></div>
+</div>
+</dd>
+</dl>
+<dl class="docutils" id="userlocation">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>address</strong>: <a class="reference internal" href="#string">String</a>!</div>
+<div class="line"><strong>latitude</strong>: <a class="reference internal" href="#float">Float</a>!</div>
+<div class="line"><strong>longitude</strong>: <a class="reference internal" href="#float">Float</a>!</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="device">
+<span id="id11"></span><h3><em>Device</em><a class="headerlink" href="#device" title="Permalink to this headline">¶</a></h3>
+<p>A device for a user.</p>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>id</strong>: <a class="reference internal" href="#id">ID</a>!</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="id12">
+<span id="id13"></span><h3><em>Order</em><a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>Details on a order.</p>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>delivery</strong>: <a class="reference internal" href="#delivery">Delivery</a>!</div>
+<div class="line"><strong>deliveryFee</strong>: <a class="reference internal" href="#float">Float</a>!</div>
+<div class="line"><strong>id</strong>: <a class="reference internal" href="#id">ID</a>!</div>
+<div class="line"><strong>insertedAt</strong>: <a class="reference internal" href="#datetime">DateTime</a>!</div>
+<div class="line"><strong>items</strong>: [<a class="reference internal" href="#orderitem">OrderItem</a>!]!</div>
+<div class="line"><strong>itemsSummary</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>orderNumber</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>paymentMethod</strong>: <a class="reference internal" href="#paymentmethod">PaymentMethod</a></div>
+<div class="line"><strong>rating</strong>: <a class="reference internal" href="#rating">Rating</a></div>
+<div class="line"><strong>restaurant</strong>: <a class="reference internal" href="#restaurant">Restaurant</a>!</div>
+<div class="line"><strong>status</strong>: <a class="reference internal" href="#orderstatus">OrderStatus</a>!</div>
+<div class="line"><strong>subtotal</strong>: <a class="reference internal" href="#float">Float</a>!</div>
+<div class="line"><strong>tax</strong>: <a class="reference internal" href="#float">Float</a></div>
+<div class="line"><strong>tip</strong>: <a class="reference internal" href="#float">Float</a></div>
+<div class="line"><strong>total</strong>: <a class="reference internal" href="#float">Float</a>!</div>
+<div class="line"><strong>updatedAt</strong>: <a class="reference internal" href="#datetime">DateTime</a>!</div>
+<div class="line"><strong>user</strong>: <a class="reference internal" href="#user">User</a>!</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="orderitem">
+<span id="id14"></span><h3><em>OrderItem</em><a class="headerlink" href="#orderitem" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>id</strong>: <a class="reference internal" href="#id">ID</a>!</div>
+<div class="line"><strong>itemPrice</strong>: <a class="reference internal" href="#float">Float</a>!</div>
+<div class="line"><strong>menuItem</strong>: <a class="reference internal" href="#menuitem">MenuItem</a></div>
+<div class="line"><strong>order</strong>: <a class="reference internal" href="#id12">Order</a>!</div>
+<div class="line"><strong>quantity</strong>: <a class="reference internal" href="#int">Int</a></div>
+<div class="line"><strong>total</strong>: <a class="reference internal" href="#float">Float</a>!</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="orderiteminput">
+<span id="id15"></span><h3><em>OrderItemInput</em><a class="headerlink" href="#orderiteminput" title="Permalink to this headline">¶</a></h3>
+<p>Arguments for order item input.</p>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>items</strong>: [<a class="reference internal" href="#orderitemmodifierinput">OrderItemModifierInput</a>!]!</div>
+<div class="line"><strong>menutItemId</strong>: <a class="reference internal" href="#id">ID</a>!</div>
+<div class="line"><strong>quantity</strong>: <a class="reference internal" href="#int">Int</a>!</div>
+<div class="line"><strong>specialInstructions</strong>: <a class="reference internal" href="#string">String</a></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="orderitemmodifierinput">
+<span id="id16"></span><h3><em>OrderItemModifierInput</em><a class="headerlink" href="#orderitemmodifierinput" title="Permalink to this headline">¶</a></h3>
+<p>Arguments for order item modifier input.</p>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><strong>itemId</strong>: <a class="reference internal" href="#id">ID</a>!</dd>
+</dl>
+</div>
+<div class="section" id="menu">
+<span id="id17"></span><h3><em>Menu</em><a class="headerlink" href="#menu" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>description</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>id</strong>: <a class="reference internal" href="#id">ID</a></div>
+<div class="line"><strong>insertedAt</strong>: <a class="reference internal" href="#datetime">DateTime</a></div>
+<div class="line"><strong>menuSection</strong>: [<a class="reference internal" href="#menusection">MenuSection</a>!]!</div>
+<div class="line"><strong>name</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>toGold</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>updatedAt</strong>: <a class="reference internal" href="#datetime">DateTime</a></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="menuitem">
+<span id="id18"></span><h3><em>MenuItem</em><a class="headerlink" href="#menuitem" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>class</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>description</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>displayPrice</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>id</strong>: <a class="reference internal" href="#id">ID</a>!</div>
+<div class="line"><strong>includedGroups</strong>: [<a class="reference internal" href="#menuitemgroup">MenuItemGroup</a>!]</div>
+<div class="line"><strong>isHealthy</strong>: <a class="reference internal" href="#boolean">Boolean</a>!</div>
+<div class="line"><strong>menuItemGroup</strong>: <a class="reference internal" href="#menuitemgroup">MenuItemGroup</a>!</div>
+<div class="line"><strong>menuSection</strong>: <a class="reference internal" href="#menusection">MenuSection</a>!</div>
+<div class="line"><strong>name</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>price</strong>: <a class="reference internal" href="#decimal">Decimal</a></div>
+<div class="line"><strong>primaryImageUrl</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>toGold</strong>: <a class="reference internal" href="#string">String</a></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="menuitemgroup">
+<span id="id19"></span><h3><em>MenuItemGroup</em><a class="headerlink" href="#menuitemgroup" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>class</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>description</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>displayPrice</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>id</strong>: <a class="reference internal" href="#id">ID</a>!</div>
+<div class="line"><strong>isHealthy</strong>: <a class="reference internal" href="#boolean">Boolean</a>!</div>
+<div class="line"><strong>maxChoices</strong>: <a class="reference internal" href="#decimal">Decimal</a></div>
+<div class="line"><strong>menuItems</strong>: [<a class="reference internal" href="#menuitem">MenuItem</a>!]</div>
+<div class="line"><strong>price</strong>: <a class="reference internal" href="#decimal">Decimal</a></div>
+<div class="line"><strong>primaryImageUrl</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>title</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>toGold</strong>: <a class="reference internal" href="#string">String</a></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="menusection">
+<span id="id20"></span><h3><em>MenuSection</em><a class="headerlink" href="#menusection" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>description</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>id</strong>: <a class="reference internal" href="#id">ID</a>!</div>
+<div class="line"><strong>insertAt</strong>: <a class="reference internal" href="#datetime">DateTime</a>!</div>
+<div class="line"><strong>isHidden</strong>: <a class="reference internal" href="#boolean">Boolean</a></div>
+<div class="line"><strong>menuItems</strong>: [<a class="reference internal" href="#menuitem">MenuItem</a>!]</div>
+<div class="line"><strong>title</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>toGold</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>updatedAt</strong>: <a class="reference internal" href="#datetime">DateTime</a></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="delivery">
+<span id="id21"></span><h3><em>Delivery</em><a class="headerlink" href="#delivery" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>deliveryLocation</strong>: <a class="reference internal" href="#deliverylocation">DeliveryLocation</a>!</div>
+<div class="line"><strong>deliveryLocations</strong>: [<a class="reference internal" href="#deliverylocation">DeliveryLocation</a>!]!</div>
+<div class="line"><strong>driver</strong>: <a class="reference internal" href="#driver">Driver</a>!</div>
+<div class="line"><strong>eta</strong>: <a class="reference internal" href="#string">String</a>!</div>
+<div class="line"><strong>id</strong>: <a class="reference internal" href="#id">ID</a></div>
+<div class="line"><strong>insertedAt</strong>: <a class="reference internal" href="#datetime">DateTime</a>!</div>
+<div class="line"><strong>order</strong>: <a class="reference internal" href="#id12">Order</a></div>
+<div class="line"><strong>userLocation</strong>: <a class="reference internal" href="#userlocation">UserLocation</a>!</div>
+<div class="line"><strong>vote</strong>: <a class="reference internal" href="#deliveryvote">DeliveryVote</a></div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="deliverylocation">
+<span id="id22"></span><h3><em>DeliveryLocation</em><a class="headerlink" href="#deliverylocation" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>eta</strong>: <a class="reference internal" href="#string">String</a>!</div>
+<div class="line"><strong>id</strong>: <a class="reference internal" href="#id">ID</a>!</div>
+<div class="line"><strong>insertedAt</strong>: <a class="reference internal" href="#datetime">DateTime</a>!</div>
+<div class="line"><strong>latitude</strong>: <a class="reference internal" href="#float">Float</a>!</div>
+<div class="line"><strong>longitude</strong>: <a class="reference internal" href="#float">Float</a>!</div>
+<div class="line"><strong>status</strong>: <a class="reference internal" href="#string">String</a>!</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="deliveryvote">
+<span id="id23"></span><h3><em>DeliveryVote</em><a class="headerlink" href="#deliveryvote" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>delivery</strong>: <a class="reference internal" href="#delivery">Delivery</a>!</div>
+<div class="line"><strong>id</strong>: <a class="reference internal" href="#id">ID</a>!</div>
+<div class="line"><strong>vote</strong>: <a class="reference internal" href="#int">Int</a>!</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="rating">
+<span id="id24"></span><h3><em>Rating</em><a class="headerlink" href="#rating" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>comment</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>id</strong>: <a class="reference internal" href="#id">ID</a></div>
+<div class="line"><strong>insertedAt</strong>: <a class="reference internal" href="#datetime">DateTime</a>!</div>
+<div class="line"><strong>order</strong>: <a class="reference internal" href="#id12">Order</a>!</div>
+<div class="line"><strong>restaurant</strong>: <a class="reference internal" href="#restaurant">Restaurant</a>!</div>
+<div class="line"><strong>value</strong>: <a class="reference internal" href="#decimal">Decimal</a>!</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="restaurant">
+<span id="id25"></span><h3><em>Restaurant</em><a class="headerlink" href="#restaurant" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>fields:</dt>
+<dd><div class="first last line-block">
+<div class="line"><strong>address1</strong>: <a class="reference internal" href="#string">String</a>!</div>
+<div class="line"><strong>address2</strong>: <a class="reference internal" href="#string">String</a>]!</div>
+<div class="line"><strong>city</strong>: <a class="reference internal" href="#string">String</a>!</div>
+<div class="line"><strong>contact</strong>: <a class="reference internal" href="#string">String</a>!</div>
+<div class="line"><strong>deliveryFee</strong>: <a class="reference internal" href="#decimal">Decimal</a></div>
+<div class="line"><strong>description</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>email</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>hours</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>id</strong>: <a class="reference internal" href="#id">ID</a></div>
+<div class="line"><strong>imageUrl</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>insertedAt</strong>: <a class="reference internal" href="#datetime">DateTime</a>!</div>
+<div class="line"><strong>latitude</strong>: <a class="reference internal" href="#float">Float</a></div>
+<div class="line"><strong>longitude</strong>: <a class="reference internal" href="#float">Float</a></div>
+<div class="line"><strong>menus</strong>: [<a class="reference internal" href="#menu">Menu</a>!]!</div>
+<div class="line"><strong>name</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>phone</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>state</strong>: <a class="reference internal" href="#string">String</a></div>
+<div class="line"><strong>updatedAt</strong>: <a class="reference internal" href="#datetime">DateTime</a>!</div>
+<div class="line"><strong>zip</strong>: <a class="reference internal" href="#string">String</a></div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="scalars">
+<h2>Scalars<a class="headerlink" href="#scalars" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="string">
+<span id="id26"></span><h3><em>String</em><a class="headerlink" href="#string" title="Permalink to this headline">¶</a></h3>
+<p>Represents textual data, represented as UTF-8 character sequences.
+The String type is most often used by GraphQL to represent free-form human-readable text.</p>
+</div>
+<div class="section" id="datetime">
+<span id="id27"></span><h3><em>DateTime</em><a class="headerlink" href="#datetime" title="Permalink to this headline">¶</a></h3>
+<p>Represents a date and time in the UTC timezone.
+The DateTime appears in a JSON response as an ISO8601 formatted string, including UTC timezone (“Z”).
+The parsed date and time string will be converted to UTC and any UTC offset other than 0 will be rejected.</p>
+</div>
+<div class="section" id="id">
+<span id="id28"></span><h3><em>ID</em><a class="headerlink" href="#id" title="Permalink to this headline">¶</a></h3>
+<p>Represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable.
+When expected as an input type, any string (such as “4”) or integer (such as 4) input value will be accepted as an ID.</p>
+</div>
+<div class="section" id="int">
+<span id="id29"></span><h3><em>Int</em><a class="headerlink" href="#int" title="Permalink to this headline">¶</a></h3>
+<p>Represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.</p>
+</div>
+<div class="section" id="float">
+<span id="id30"></span><h3><em>Float</em><a class="headerlink" href="#float" title="Permalink to this headline">¶</a></h3>
+<p>Represents signed double-precision fractional values as specified by IEEE 754.</p>
+</div>
+<div class="section" id="decimal">
+<span id="id31"></span><h3><em>Decimal</em><a class="headerlink" href="#decimal" title="Permalink to this headline">¶</a></h3>
+<p>Represents signed double-precision fractional values parsed by the Decimal library.
+The Decimal appears in a JSON response as a string to preserve precision.</p>
+</div>
+<div class="section" id="boolean">
+<span id="id32"></span><h3><em>Boolean</em><a class="headerlink" href="#boolean" title="Permalink to this headline">¶</a></h3>
+<p>Represents <strong>true</strong> or <strong>false</strong>.</p>
+</div>
+</div>
+<div class="section" id="enum">
+<h2>Enum<a class="headerlink" href="#enum" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="availabilitystatus">
+<span id="id33"></span><h3><em>AvailabilityStatus</em><a class="headerlink" href="#availabilitystatus" title="Permalink to this headline">¶</a></h3>
+<p>Drivers Availability Status.</p>
+<dl class="docutils">
+<dt>values:</dt>
+<dd><div class="first last line-block">
+<div class="line">offline</div>
+<div class="line">online</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="section" id="orderstatus">
+<span id="id34"></span><h3><em>OrderStatus</em><a class="headerlink" href="#orderstatus" title="Permalink to this headline">¶</a></h3>
+<p>Order Status.</p>
+<dl class="docutils">
+<dt>values:</dt>
+<dd><div class="first last line-block">
+<div class="line">delivered</div>
+<div class="line">delivering</div>
+<div class="line">pending</div>
+<div class="line">processed</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="license.html" class="btn btn-neutral float-right" title="License" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="makingapicalls.html" class="btn btn-neutral float-left" title="Making API Calls" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Matt Waymouth
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

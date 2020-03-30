@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Getting Started with Phood Api &mdash; phood-api 0.3.8 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Making API Calls" href="makingapicalls.html" />
+    <link rel="prev" title="Phood-API Documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> phood-api
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started with Phood Api</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#accessing-the-phood-api-graphql-endpoint">Accessing the Phood API GraphQL endpoint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#authentication">Authentication</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#phood-account">Phood Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#google-account">Google Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#facebook-account">Facebook Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#twitter-account">Twitter Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#curl-example">Curl Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="makingapicalls.html">Making API Calls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">phood-api</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Getting Started with Phood Api</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/gettingstarted.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started-with-phood-api">
+<h1>Getting Started with Phood Api<a class="headerlink" href="#getting-started-with-phood-api" title="Permalink to this headline">¶</a></h1>
+<p>The phood api provides access to users, payment types, payment balance and other phood delivery resources.</p>
+<div class="section" id="accessing-the-phood-api-graphql-endpoint">
+<h2>Accessing the Phood API GraphQL endpoint<a class="headerlink" href="#accessing-the-phood-api-graphql-endpoint" title="Permalink to this headline">¶</a></h2>
+<p>You can access the Phood API GraphQL endpoing using GraphiQL, curl or any HTTP client.
+You SHOULD use the <strong>POST</strong> method for all requests.</p>
+<p>The GraphQL endpoint is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">phood</span><span class="o">-</span><span class="n">api</span><span class="o">-</span><span class="n">prod</span><span class="o">.</span><span class="n">herokuapp</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">graphql</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="authentication">
+<h2>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
+<p>The Phood API also requires an <strong>access token</strong>, which can only be obtained with a valid account.</p>
+<p>All authorization methods will return an authorization token that shoul be passed to the header.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Authorization</span><span class="p">:</span> <span class="n">Bearer</span> <span class="o">&lt;</span><span class="n">token</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p><strong>Curl Example with authorization token in the header</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> \
+<span class="o">-</span><span class="n">H</span> <span class="s2">&quot;Content-Type: application/json&quot;</span> \
+<span class="o">-</span><span class="n">H</span> <span class="s2">&quot;Authorization: Bearer EBnKHEB.DvtHpdHTruklmS3g2Lf5tswGqTvG2t9uBBbXeotAQE4&quot;</span> \
+<span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">phood</span><span class="o">-</span><span class="n">api</span><span class="o">-</span><span class="n">prod</span><span class="o">.</span><span class="n">herokuapp</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">graphql</span> \
+<span class="o">-</span><span class="n">d</span> <span class="s1">&#39;{ &quot;query&quot;: &quot; query{ me </span><span class="si">{email}</span><span class="s1"> }&quot; }&#39;</span>
+</pre></div>
+</div>
+<div class="section" id="phood-account">
+<h3>Phood Account<a class="headerlink" href="#phood-account" title="Permalink to this headline">¶</a></h3>
+<p><strong>GraphQL</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mutation</span> <span class="p">{</span>
+    <span class="n">authenticate</span><span class="p">(</span><span class="n">email</span><span class="p">:</span><span class="s2">&quot;email@gmail.com&quot;</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span><span class="s2">&quot;password&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="google-account">
+<h3>Google Account<a class="headerlink" href="#google-account" title="Permalink to this headline">¶</a></h3>
+<p><strong>GraphQL</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mutation</span> <span class="p">{</span>
+    <span class="n">authenticateWithGoogle</span><span class="p">(</span><span class="n">accessToken</span><span class="p">:</span> <span class="s2">&quot;token&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="facebook-account">
+<h3>Facebook Account<a class="headerlink" href="#facebook-account" title="Permalink to this headline">¶</a></h3>
+<p><strong>GraphQL</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mutation</span> <span class="p">{</span>
+    <span class="n">authenticateWithFacebook</span><span class="p">(</span><span class="n">accessToken</span><span class="p">:</span> <span class="s2">&quot;token&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="twitter-account">
+<h3>Twitter Account<a class="headerlink" href="#twitter-account" title="Permalink to this headline">¶</a></h3>
+<p><strong>GraphQL</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mutation</span> <span class="p">{</span>
+    <span class="n">authenticateWithTwitter</span><span class="p">(</span><span class="n">secret</span><span class="p">:</span> <span class="s2">&quot;secret&quot;</span><span class="p">,</span> <span class="n">token</span><span class="p">:</span> <span class="s2">&quot;token&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="curl-example">
+<h3>Curl Example<a class="headerlink" href="#curl-example" title="Permalink to this headline">¶</a></h3>
+<p>This is an Example of a Curl request of the authenticate shown above.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>curl \
+-H &quot;Content-Type: application/json&quot; \
+-X POST https://phood-api-prod.herokuapp.com/graphql \
+-d &#39;{ &quot;query&quot;: &quot; mutation Authenticate($userEmail:String!, $userPassword:String!){
+authenticate(email:$userEmail, password:$userPassword) }&quot;,
+&quot;variables&quot;: { &quot;userEmail&quot;: &quot;youremail@gmail.com&quot;, &quot;userPassword&quot;: &quot;password1234&quot;} }&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="makingapicalls.html" class="btn btn-neutral float-right" title="Making API Calls" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Phood-API Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Matt Waymouth
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
