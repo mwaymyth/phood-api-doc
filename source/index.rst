@@ -15,10 +15,3 @@ The Phood-api can only be accessed using GraphQL.
    makingapicalls
    reference
    license
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
